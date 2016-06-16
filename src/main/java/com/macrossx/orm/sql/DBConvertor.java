@@ -13,24 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.macrossx.orm.ldap;
+package com.macrossx.orm.sql;
 
-import java.util.HashMap;
+import java.sql.ResultSet;
 
-import com.google.inject.PrivateModule;
-import com.google.inject.name.Names;
-
-public abstract class LdapModule extends PrivateModule{
-
-	@Override
-	protected void configure() {
-		this.provider().forEach((k,v)->{
-			System.out.println(k+"\t"+v);
-			super.binder().bindConstant().annotatedWith(Names.named(k)).to(v);
-		});
-		super.expose(LdapMapper.class);
-	}
-	
-	public abstract HashMap<String,String> provider();	 
-
+public interface DBConvertor {
+	public void convert(ResultSet result);
 }

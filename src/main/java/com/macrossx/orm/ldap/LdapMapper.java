@@ -61,6 +61,7 @@ public class LdapMapper<E> implements IMapper<E> {
 
 	public LdapMapper() {
 		env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
+		System.out.println("xxx====>"+providerUrl);
 		env.put(Context.PROVIDER_URL, providerUrl + root);
 		env.put(Context.SECURITY_AUTHENTICATION, securityAuthentication);
 		env.put(Context.SECURITY_PRINCIPAL, securityPrincipal);
@@ -126,7 +127,7 @@ public class LdapMapper<E> implements IMapper<E> {
 			classes = new Class[] { readerClass, readerClass.getSuperclass() };
 		}
 
-		// 收集set方法
+		// 鏀堕泦set鏂规硶
 		for (Class clazz : classes) {
 			for (Method method : clazz.getDeclaredMethods()) {
 				if (method.getName().startsWith("set")) {
@@ -138,7 +139,7 @@ public class LdapMapper<E> implements IMapper<E> {
 
 		}
 
-		// 遍历set方法
+		// 閬嶅巻set鏂规硶
 		for (Iterator iterator = methodSetMap.keySet().iterator(); iterator.hasNext();) {
 			String fieldName = (String) iterator.next();
 			Method method = (Method) methodSetMap.get(fieldName);
