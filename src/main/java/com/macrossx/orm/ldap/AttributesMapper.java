@@ -3,7 +3,7 @@ package com.macrossx.orm.ldap;
 import javax.naming.NamingException;
 import javax.naming.directory.Attributes;
 /**
- * LDAP²éÑ¯½á¹ûÓë¹Ì¶¨×Ö¶Î×ª»»-ÍµÀÁ×¨ÓÃ
+ * LDAPæŸ¥è¯¢ç»“æœä¸å›ºå®šå­—æ®µè½¬æ¢-å·æ‡’ä¸“ç”¨
  * @see ShlibLDAPDriver.search();
  * 
  * @author guo
