@@ -87,8 +87,15 @@ public class DBDriver {
 		return list;
 	}
 
-	public int executeUpdate(String sSQL) throws SQLException {
-		return stmtActive.executeUpdate(sSQL);
+	public int executeUpdate(String sSQL)  {
+		try{
+			this.openStatement();
+			int i =  stmtActive.executeUpdate(sSQL);
+			this.closeStatment();
+			return i;
+		}catch(SQLException e){
+			e.printStackTrace();
+		}return -1;
 	}
 
 	public void closeStatment() throws SQLException {
